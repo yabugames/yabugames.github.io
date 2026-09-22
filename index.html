@@ -92,17 +92,6 @@
   </div>
 </footer>
 
-<script>
-  // Hamburger: tek düğme, JS bağımlılığı yok. Menü kapalıyken de bağlantılar okunur (max-height).
-  var b = document.getElementById('burger'), m = document.getElementById('menu');
-  b.addEventListener('click', function () {
-    var open = b.getAttribute('aria-expanded') === 'true';
-    b.setAttribute('aria-expanded', String(!open));
-    m.classList.toggle('open', !open);
-  });
-  m.addEventListener('click', function (e) {          // bağlantıya basınca menü kapansın
-    if (e.target.tagName === 'A') { b.setAttribute('aria-expanded', 'false'); m.classList.remove('open'); }
-  });
-</script>
+<script src="site.js" defer></script>
 </body>
 </html>
