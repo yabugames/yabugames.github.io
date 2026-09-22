@@ -119,7 +119,8 @@ th { background: rgba(255, 255, 255, .07); color: #fff; font-weight: 800; }
    büyük kalmış"). Adres yine görünür ama küçük ve sessiz; tıklanacak şey düğme. */
 .panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
 .panel .quiet { margin: 0 0 14px; color: var(--muted); }
-.panel .actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+.btn[aria-disabled="true"] { opacity: .72; cursor: default; }   /* "yakında": düğme gibi durur ama gitmez */
 .panel .tiny { margin: 12px 0 0; font-size: 13.5px; color: var(--muted); }
 .doc .quiet { color: var(--muted); }
 
