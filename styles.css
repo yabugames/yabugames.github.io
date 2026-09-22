@@ -115,6 +115,14 @@ th { background: rgba(255, 255, 255, .07); color: #fff; font-weight: 800; }
 .toc a { display: inline-block; padding: 6px 13px; border: 1px solid var(--line); border-radius: 999px;
          text-decoration: none; font-size: 14px; font-weight: 700; }
 
+/* İletişim kutusu: e-posta adresi SATIR BAŞI değil, eylem düğmesi öne çıkar (22 Eylül, kullanıcı: "mailim çok
+   büyük kalmış"). Adres yine görünür ama küçük ve sessiz; tıklanacak şey düğme. */
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
+.panel .quiet { margin: 0 0 14px; color: var(--muted); }
+.panel .actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+.panel .tiny { margin: 12px 0 0; font-size: 13.5px; color: var(--muted); }
+.doc .quiet { color: var(--muted); }
+
 /* ── Alt bilgi ───────────────────────────────────────────────────────── */
 footer { border-top: 1px solid var(--line); margin-top: 40px; padding: 26px 0 40px; color: var(--muted); font-size: 15px; }
 footer .row { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
