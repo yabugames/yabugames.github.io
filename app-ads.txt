@@ -1,0 +1,5 @@
+# Yabu Games — yetkili reklam satıcıları (IAB app-ads.txt)
+# Yayıncı kimliği AdMob → Ayarlar → Hesap bilgileri. Aşağıdaki satır FRUITXOX'un yayındaki dosyasıyla aynı hesap
+# (22 Eylül'de https://2yasinkoc.github.io/app-ads.txt üzerinden doğrulandı). Kupi Cube başka bir AdMob hesabında
+# açılırsa o hesabın satırı da EKLENİR (her satır ayrı yayıncı).
+google.com, pub-4752003199538305, DIRECT, f08c47fec0942fa0

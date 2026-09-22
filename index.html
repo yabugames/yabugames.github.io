@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yabu Games</title>
+<meta name="description" content="Yabu Games makes cute, brainy puzzle games. Makers of Kupi Cube.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<meta property="og:title" content="Yabu Games">
+<meta property="og:description" content="Cute, brainy puzzle games. Makers of Kupi Cube.">
+<meta property="og:image" content="assets/og.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="wrap row">
+    <a class="home" href="./" aria-label="Yabu Games home">
+      <img src="assets/yabu-wordmark.png" alt="Yabu Games">
+      <span>GAMES</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+      <span></span>
+    </button>
+    <nav class="links" id="menu">
+      <a href="#games">Games</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+
+    <div class="hero">
+      <img class="mark" src="assets/yabu-wordmark.png" alt="yabu">
+      <p class="sub">GAMES</p>
+      <p class="lead">We make cute, brainy puzzle games you can play in a minute and think about all day.</p>
+    </div>
+
+    <section id="games">
+      <h2 class="section">Our games</h2>
+      <div class="games">
+
+        <article class="game">
+          <img src="assets/kupicube-icon.png" alt="Kupi Cube icon" width="86" height="86">
+          <div>
+            <h3>Kupi Cube</h3>
+            <p>Drag, aim, blast. 500 levels of cube buddies, chains and cosy worlds.</p>
+            <!-- Oyun mağazada görününce bu satır Play bağlantısına döner (bozuk bağlantı yayınlamıyoruz):
+                 <a class="btn" href="https://play.google.com/store/apps/details?id=com.yabugames.kupicube">Google Play</a> -->
+            <span class="btn ghost" aria-disabled="true">Coming soon to Google Play</span>
+          </div>
+        </article>
+
+        <article class="game">
+          <img src="assets/fruitxox-icon.png" alt="FRUİTXOX icon" width="86" height="86">
+          <div>
+            <h3>FRUİTXOX</h3>
+            <p>Merge the fruit, chase a high score. A quick, colourful arcade puzzle.</p>
+            <a class="btn" href="https://play.google.com/store/apps/details?id=com.Untouchable.fruitxox">Google Play</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section">Contact</h2>
+      <p>Press, partnerships or a bug you want gone:
+         <a href="mailto:2yasinkoc@gmail.com">2yasinkoc@gmail.com</a></p>
+      <p><a class="btn ghost" href="privacy-policy.html">Privacy Policy</a></p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>&copy; 2026 Yabu Games</span>
+    <span class="spacer"></span>
+    <a href="privacy-policy.html">Privacy</a>
+    <a href="mailto:2yasinkoc@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+  // Hamburger: tek düğme, JS bağımlılığı yok. Menü kapalıyken de bağlantılar okunur (max-height).
+  var b = document.getElementById('burger'), m = document.getElementById('menu');
+  b.addEventListener('click', function () {
+    var open = b.getAttribute('aria-expanded') === 'true';
+    b.setAttribute('aria-expanded', String(!open));
+    m.classList.toggle('open', !open);
+  });
+  m.addEventListener('click', function (e) {          // bağlantıya basınca menü kapansın
+    if (e.target.tagName === 'A') { b.setAttribute('aria-expanded', 'false'); m.classList.remove('open'); }
+  });
+</script>
+</body>
+</html>
