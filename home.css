@@ -1,0 +1,155 @@
+/* Yabu Games — ANA SAYFA stili (yalnız index.html).
+   Yapı: tek renk dolu SAHNE (marka + oyun + mağazalar) ve koyu ALT BÖLÜM (stüdyo, iletişim, keşfet).
+   Renkler oyundan: sahne = Kupi Cube panel mavisi, alt bölüm = açılış ekranının laciverti, vurgu = oyunun altını.
+   Gizlilik sayfası styles.css kullanır; bu dosya ona karışmaz. Bağımlılık yok, GitHub Pages doğrudan yayınlar. */
+:root {
+  --field:    #2577c8;   /* panel mavisi, beyaz yazı AA geçsin diye bir ton derin (4.6:1) */
+  --field-hi: #3b90e2;
+  --field-lo: #1d63a9;
+  --ink:      #0e1726;   /* açılış lacivertinin derini */
+  --ink-line: rgba(255, 255, 255, .09);
+  --text:     #e9eefb;
+  --muted:    #9fb0cf;
+  --gold:     #ffc23d;
+  --badge:    #0b1220;
+  --gutter:   clamp(16px, 4vw, 40px);
+  --wrap:     1080px;
+  --display:  "Baloo 2", "Nunito", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 8px; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 12px; z-index: 5; background: #fff; color: #0d1726; padding: 8px 14px; border-radius: 999px; }
+
+/* ── SAHNE ───────────────────────────────────────────────────────────── */
+.stage {
+  min-height: min(76vh, 780px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 3.2vh, 30px);
+  padding: clamp(56px, 10vh, 112px) var(--gutter) clamp(64px, 11vh, 124px);
+  text-align: center;
+  color: #fff;
+  background:
+    radial-gradient(ellipse 72% 62% at 50% 36%, var(--field-hi) 0%, var(--field) 56%, var(--field-lo) 100%);
+}
+
+.brand { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.brand img { display: block; width: min(64vw, 520px); height: auto; }
+.brand span {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(15px, 2.2vw, 22px);
+  letter-spacing: .62em;
+  padding-left: .62em;          /* harf aralığı sağa taşar; optik ortalama için aynı pay solda */
+  text-transform: uppercase;
+  opacity: .94;
+}
+
+.lead {
+  margin: 0;
+  max-width: 34ch;
+  font-size: clamp(18px, 2.3vw, 22px);
+  font-weight: 700;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+.game {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 22px 10px 10px;
+  border-radius: 22px;
+  background: rgba(9, 20, 38, .22);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .17);
+  text-align: left;
+}
+.game img { display: block; width: 60px; height: 60px; border-radius: 14px; }
+.game p { margin: 0; }
+.game b { display: block; font-family: var(--display); font-size: 21px; line-height: 1.15; }
+.game span { display: block; font-size: 15px; line-height: 1.35; color: rgba(255, 255, 255, .88); }
+
+.stores { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.store {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 204px;
+  min-height: 62px;
+  padding: 9px 24px 10px;
+  border-radius: 14px;
+  background: var(--badge);
+  color: #fff;
+  text-align: left;
+  text-decoration: none;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .24), 0 12px 26px rgba(8, 20, 40, .30);
+}
+.store small { font-size: 11.5px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: rgba(255, 255, 255, .78); }
+.store b { font-family: var(--display); font-size: 23px; line-height: 1.12; }
+.store.soon { cursor: default; }
+.store.soon small { color: var(--gold); }
+a.store { transition: transform .16s ease, box-shadow .16s ease; }
+a.store:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(255, 255, 255, .34), 0 16px 30px rgba(8, 20, 40, .36); }
+
+/* ── ALT BÖLÜM ───────────────────────────────────────────────────────── */
+footer { background: var(--ink); padding: clamp(48px, 8vh, 88px) var(--gutter) 28px; }
+.cols {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: clamp(28px, 5vw, 72px);
+}
+.about img { display: block; width: 136px; height: auto; margin-bottom: 18px; }
+.about p { margin: 0; max-width: 30ch; color: var(--muted); }
+
+footer h2 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #fff;
+}
+footer nav a { display: block; padding: 8px 0; color: var(--text); text-decoration: none; overflow-wrap: anywhere; }
+footer nav a:hover { color: var(--gold); }
+
+.legal {
+  max-width: var(--wrap);
+  margin: clamp(36px, 6vh, 64px) auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--ink-line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 720px) {
+  .cols { grid-template-columns: 1fr; gap: 32px; }
+  .stores { width: 100%; }
+  .stores li { flex: 1 1 204px; max-width: 320px; }
+  .store { min-width: 0; }
+}
+
+/* Açılışta tek, sakin bir hareket: öğeler sırayla yerine oturur. Hareket istemeyende hiç oynamaz. */
+@media (prefers-reduced-motion: no-preference) {
+  .stage > * { animation: rise .62s cubic-bezier(.2, .7, .2, 1) both; }
+  .stage > *:nth-child(2) { animation-delay: .07s; }
+  .stage > *:nth-child(3) { animation-delay: .14s; }
+  .stage > *:nth-child(4) { animation-delay: .21s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+}

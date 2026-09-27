@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yabu Games</title>
 <meta name="description" content="Yabu Games makes cute, brainy puzzle games. Makers of Kupi Cube.">
+<meta name="theme-color" content="#2577c8">
 <link rel="icon" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
 <meta property="og:title" content="Yabu Games">
@@ -14,84 +15,58 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<!-- Ana sayfanın KENDİ stil dosyası. styles.css gizlilik sayfasınındır ve ona dokunulmaz:
+     privacy-policy.html adresi mağaza incelemelerinde kayıtlı, görünümü bile değişmesin. -->
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="bar">
-  <div class="wrap row">
-    <a class="home" href="./" aria-label="Yabu Games home">
-      <img src="assets/yabu-wordmark.png" alt="Yabu Games">
-      <span>GAMES</span>
-    </a>
-    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
-      <span></span>
-    </button>
-    <nav class="links" id="menu">
-      <a href="#games">Games</a>
-      <a href="privacy-policy.html">Privacy</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<main id="main" class="stage">
+  <h1 class="brand">
+    <img src="assets/yabu-wordmark.png" alt="Yabu" width="1075" height="483">
+    <span>Games</span>
+  </h1>
+
+  <p class="lead">Cute, brainy puzzle games you can play in a minute and think about all day.</p>
+
+  <!-- id="games" / id="contact": gizlilik sayfasının menüsü ./#games ve ./#contact adreslerine bağlanıyor -->
+  <div class="game" id="games">
+    <img src="assets/kupicube-icon.png" alt="" width="60" height="60">
+    <p><b>Kupi Cube</b><span>Drag, aim, blast. 500 levels.</span></p>
   </div>
-</header>
 
-<main id="main">
-  <div class="wrap">
-
-    <div class="hero">
-      <img class="mark" src="assets/yabu-wordmark.png" alt="yabu">
-      <p class="sub">GAMES</p>
-      <p class="lead">We make cute, brainy puzzle games you can play in a minute and think about all day.</p>
-    </div>
-
-    <section id="games">
-      <h2 class="section">Our games</h2>
-      <div class="games">
-
-        <article class="game">
-          <img src="assets/kupicube-icon.png" alt="Kupi Cube icon" width="86" height="86">
-          <div>
-            <h3>Kupi Cube</h3>
-            <p>Drag, aim, blast. 500 levels of cube buddies, chains and cosy worlds.</p>
-            <!-- Mağazalar yayına girince bu iki satır gerçek bağlantıya döner (bozuk bağlantı yayınlamıyoruz):
-                 <a class="btn" href="https://play.google.com/store/apps/details?id=com.yabugames.kupicube">Google Play</a>
-                 <a class="btn" href="https://apps.apple.com/app/idXXXXXXXXX">App Store</a> -->
-            <p class="actions">
-              <span class="btn ghost" aria-disabled="true">Google Play &mdash; soon</span>
-              <span class="btn ghost" aria-disabled="true">App Store &mdash; soon</span>
-            </p>
-          </div>
-        </article>
-
-
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2 class="section">Contact</h2>
-      <div class="panel">
-        <p class="quiet">Press, partnerships or a bug you want gone — we read everything.</p>
-        <p class="actions">
-          <a class="btn" href="mailto:yabugames1@gmail.com">Email us</a>
-          <a class="btn ghost" href="privacy-policy.html">Privacy Policy</a>
-        </p>
-        <p class="tiny">yabugames1@gmail.com</p>
-      </div>
-    </section>
-
-  </div>
+  <!-- MAĞAZALAR YAYINA GİRİNCE: aşağıdaki <span class="store soon"> öğeleri <a class="store" href="…"> olur,
+       üst satır "Download on the" / "Get it on" yazar. Bozuk bağlantı YAYINLAMIYORUZ; o güne kadar "coming soon".
+         App Store   https://apps.apple.com/app/id6815752983
+         Google Play https://play.google.com/store/apps/details?id=com.yabugames.kupicube -->
+  <ul class="stores">
+    <li><span class="store soon" aria-disabled="true"><small>Coming soon on the</small><b>App Store</b></span></li>
+    <li><span class="store soon" aria-disabled="true"><small>Coming soon on</small><b>Google Play</b></span></li>
+  </ul>
 </main>
 
 <footer>
-  <div class="wrap row">
-    <span>&copy; 2026 Yabu Games</span>
-    <span class="spacer"></span>
-    <a href="privacy-policy.html">Privacy</a>
-    <a href="#contact">Contact</a>
-  </div>
-</footer>
+  <div class="cols">
+    <div class="about">
+      <img src="assets/yabu-wordmark.png" alt="Yabu Games" width="1075" height="483">
+      <p>Yabu Games is a small mobile game studio from T&uuml;rkiye. We make Kupi Cube.</p>
+    </div>
 
-<script src="site.js" defer></script>
+    <nav aria-labelledby="f-contact" id="contact">
+      <h2 id="f-contact">Contact</h2>
+      <a href="mailto:yabugames1@gmail.com?subject=Kupi%20Cube%20support">Support</a>
+      <a href="mailto:yabugames1@gmail.com">yabugames1@gmail.com</a>
+    </nav>
+
+    <nav aria-labelledby="f-explore">
+      <h2 id="f-explore">Explore</h2>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="privacy-policy.html#delete">Delete your data</a>
+    </nav>
+  </div>
+
+  <p class="legal">&copy; 2026 Yabu Games</p>
+</footer>
 </body>
 </html>
