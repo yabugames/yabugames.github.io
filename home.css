@@ -87,11 +87,11 @@ a { color: inherit; }
 .stores { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 .store {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  gap: 13px;
   min-width: 204px;
   min-height: 62px;
-  padding: 9px 24px 10px;
+  padding: 9px 24px 10px 18px;
   border-radius: 14px;
   background: var(--badge);
   color: #fff;
@@ -99,6 +99,8 @@ a { color: inherit; }
   text-decoration: none;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, .24), 0 12px 26px rgba(8, 20, 40, .30);
 }
+.store svg { flex: none; width: 30px; height: 30px; }
+.store span { display: flex; flex-direction: column; }
 .store small { font-size: 11.5px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: rgba(255, 255, 255, .78); }
 .store b { font-family: var(--display); font-size: 23px; line-height: 1.12; }
 .store.soon { cursor: default; }
