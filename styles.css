@@ -1,51 +1,32 @@
-/* Yabu Games — site stili. Renkler oyunun AÇILIŞ ekranıyla aynı: lacivert #1E2E44 zemin, gökyüzü mavisi vurgu.
-   Tek dosya, bağımlılık yok; GitHub Pages doğrudan yayınlar. */
-:root {
-  --navy:      #1e2e44;   /* Unity açılış rengi (LoadingScreenController.StudioNavy) */
-  --navy-deep: #141f30;
-  --card:      rgba(255, 255, 255, .055);
-  --line:      rgba(255, 255, 255, .10);
-  --text:      #e9eefb;
-  --muted:     #a9b6d3;
-  --sky:       #96c3ff;
-  --radius:    18px;
-  --wrap:      980px;
-}
-* { box-sizing: border-box; }
+/* Yabu Games — GİZLİLİK SAYFASI stili (yalnız privacy-policy.html).
+   Renkler, yazı ve alt bölüm theme.css'ten gelir; burada yalnız üst bar ve belge düzeni var.
+   Bağımlılık yok, GitHub Pages doğrudan yayınlar. */
 html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: radial-gradient(ellipse 90% 60% at 50% 0%, #24375260 0%, transparent 70%), var(--navy);
-  color: var(--text);
-  font-family: "Nunito", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 17px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
-.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
-a { color: var(--sky); }
-a:focus-visible, button:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 6px; }
-.skip { position: absolute; left: -9999px; }
-.skip:focus { left: 16px; top: 12px; z-index: 30; background: #fff; color: #0d1726; padding: 8px 14px; border-radius: 999px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto; } }
+
+/* Yan boşluk kapsayıcıdan (üst bar, main) gelir; .wrap yalnız genişliği sınırlar. Böylece üst barın kenarı
+   alt bölümün kenarıyla aynı hizada durur. */
+.wrap { max-width: var(--wrap); margin: 0 auto; }
 
 /* ── Üst bar + hamburger ─────────────────────────────────────────────── */
 header.bar {
   position: sticky; top: 0; z-index: 20;
-  background: rgba(20, 31, 48, .86);
+  padding: 0 var(--gutter);
+  background: rgba(14, 23, 38, .86);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--ink-line);
 }
 .bar .row { display: flex; align-items: center; gap: 16px; height: 64px; }
 .bar .home { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .bar .home img { height: 26px; width: auto; display: block; }
-.bar .home span { font-family: "Baloo 2", "Nunito", sans-serif; font-weight: 800; font-size: 15px;
-                  letter-spacing: .34em; color: var(--sky); padding-left: .34em; }
+.bar .home span { font-family: var(--display); font-weight: 800; font-size: 15px;
+                  letter-spacing: .34em; color: #fff; opacity: .94; padding-left: .34em; }
 nav.links { margin-left: auto; display: flex; gap: 22px; }
 nav.links a { color: var(--text); text-decoration: none; font-weight: 700; font-size: 15px; }
-nav.links a:hover { color: var(--sky); }
+nav.links a:hover { color: var(--gold); }
 button.burger {
   margin-left: auto; display: none; width: 44px; height: 44px; padding: 0;
-  background: transparent; border: 1px solid var(--line); border-radius: 12px; cursor: pointer;
+  background: transparent; border: 1px solid var(--ink-line); border-radius: 12px; cursor: pointer;
 }
 button.burger span, button.burger span::before, button.burger span::after {
   display: block; width: 20px; height: 2px; background: var(--text); border-radius: 2px;
@@ -63,69 +44,33 @@ button.burger[aria-expanded="true"] span::after  { transform: translateY(-6px) r
   nav.links {
     position: absolute; left: 0; right: 0; top: 64px;
     flex-direction: column; gap: 0; margin: 0;
-    background: rgba(20, 31, 48, .98); border-bottom: 1px solid var(--line);
+    background: rgba(14, 23, 38, .98); border-bottom: 1px solid var(--ink-line);
     max-height: 0; overflow: hidden; transition: max-height .22s ease;
   }
-  nav.links a { padding: 14px 20px; border-top: 1px solid var(--line); }
+  nav.links a { padding: 14px var(--gutter); border-top: 1px solid var(--ink-line); }
   nav.links.open { max-height: 260px; }
 }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto; } }
 
-/* ── Kahraman bölümü ─────────────────────────────────────────────────── */
-.hero { text-align: center; padding: 76px 0 54px; }
-.hero img.mark { width: min(420px, 74vw); height: auto; filter: drop-shadow(0 14px 30px rgba(0, 6, 20, .55)); }
-.hero .sub { font-family: "Baloo 2", "Nunito", sans-serif; font-weight: 800; letter-spacing: .42em;
-             padding-left: .42em; color: var(--sky); font-size: clamp(15px, 3vw, 22px); margin: 10px 0 0; }
-.hero p.lead { max-width: 34ch; margin: 26px auto 0; color: var(--text); text-wrap: balance; }
-
-/* ── Bölümler ────────────────────────────────────────────────────────── */
-section { padding: 34px 0; }
-h2.section { font-family: "Baloo 2", "Nunito", sans-serif; font-weight: 800; font-size: 26px;
-             margin: 0 0 18px; color: #fff; }
-.games { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
-.game {
-  display: flex; gap: 16px; align-items: center;
-  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px;
-}
-.game img { width: 86px; height: 86px; border-radius: 20px; flex: none; }
-.game h3 { margin: 0 0 2px; font-family: "Baloo 2", "Nunito", sans-serif; font-weight: 800; font-size: 21px; color: #fff; }
-.game p { margin: 0 0 10px; color: var(--muted); font-size: 15px; line-height: 1.45; }
-.btn {
-  display: inline-block; padding: 9px 18px; border-radius: 999px;
-  background: #fff; color: #0d1726; font-weight: 800; font-size: 14px; text-decoration: none;
-  box-shadow: 0 8px 18px rgba(0, 6, 20, .35);
-}
-.btn:hover { transform: translateY(-1px); }
-.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); box-shadow: none; }
-
-/* ── Gizlilik sayfası ────────────────────────────────────────────────── */
-.doc { max-width: 760px; margin: 0 auto; padding-top: 28px; padding-bottom: 10px; }   /* yan bosluk .wrap'ten gelir */
-.doc h1 { font-family: "Baloo 2", "Nunito", sans-serif; font-weight: 800; font-size: 34px; margin: 0 0 6px; color: #fff; }
+/* ── Belge ───────────────────────────────────────────────────────────── */
+main { padding: 0 var(--gutter); }
+.doc { max-width: 760px; padding-top: 28px; padding-bottom: 10px; line-height: 1.65; }
+.doc a { color: var(--sky); }
+.doc a:hover { color: var(--gold); }
+.doc h1 { font-family: var(--display); font-weight: 800; font-size: 34px; margin: 0 0 6px; color: #fff; }
 .doc .meta { color: var(--muted); font-size: 15px; margin: 0 0 26px; }
-.doc h2 { font-family: "Baloo 2", "Nunito", sans-serif; font-weight: 800; font-size: 21px; color: #fff;
-          margin: 34px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--line); scroll-margin-top: 80px; }
+.doc h2 { font-family: var(--display); font-weight: 800; font-size: 21px; color: #fff;
+          margin: 34px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--ink-line); scroll-margin-top: 80px; }
 .doc ul { padding-left: 20px; }
 .doc li { margin: 6px 0; }
 .doc code { background: rgba(255, 255, 255, .09); padding: 1px 6px; border-radius: 5px; font-size: 15px; }
+.doc .quiet { color: var(--muted); }
 .tablewrap { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 15px; margin: 10px 0; }
-th, td { border: 1px solid var(--line); padding: 9px 11px; text-align: left; vertical-align: top; }
+th, td { border: 1px solid var(--ink-line); padding: 9px 11px; text-align: left; vertical-align: top; }
 th { background: rgba(255, 255, 255, .07); color: #fff; font-weight: 800; }
 .doc .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; padding: 0; list-style: none; }
-.toc a { display: inline-block; padding: 6px 13px; border: 1px solid var(--line); border-radius: 999px;
+.toc a { display: inline-block; padding: 6px 13px; border: 1px solid var(--ink-line); border-radius: 999px;
          text-decoration: none; font-size: 14px; font-weight: 700; }
 
-/* İletişim kutusu: e-posta adresi SATIR BAŞI değil, eylem düğmesi öne çıkar (22 Eylül, kullanıcı: "mailim çok
-   büyük kalmış"). Adres yine görünür ama küçük ve sessiz; tıklanacak şey düğme. */
-.panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
-.panel .quiet { margin: 0 0 14px; color: var(--muted); }
-.actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
-.btn[aria-disabled="true"] { opacity: .72; cursor: default; }   /* "yakında": düğme gibi durur ama gitmez */
-.panel .tiny { margin: 12px 0 0; font-size: 13.5px; color: var(--muted); }
-.doc .quiet { color: var(--muted); }
-
-/* ── Alt bilgi ───────────────────────────────────────────────────────── */
-footer { border-top: 1px solid var(--line); margin-top: 40px; padding: 26px 0 40px; color: var(--muted); font-size: 15px; }
-footer .row { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
-footer a { color: var(--muted); }
-footer .spacer { margin-left: auto; }
+/* Belge ile alt bölüm aynı zeminde: aralarını ince çizgi ayırır (ana sayfada bu işi mavi sahne yapıyor). */
+footer { margin-top: 40px; border-top: 1px solid var(--ink-line); }

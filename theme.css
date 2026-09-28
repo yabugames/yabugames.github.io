@@ -1,0 +1,76 @@
+/* Yabu Games — ORTAK TEMA (index.html + privacy-policy.html).
+   Renk, yazı, odak ve ALT BÖLÜM tek yerde durur: iki sayfa aynı temayı taşır (28 Eylül, kullanıcı: "aynı temaya
+   sahip olsunlar"). Eskiden her sayfanın kendi renk tablosu vardı ve gizlilik sayfası daha açık bir lacivertte kalmıştı.
+   Sayfaya özel kurallar: home.css (ana sayfa sahnesi), styles.css (gizlilik sayfası).
+   Renkler oyundan: sahne = Kupi Cube panel mavisi, zemin = açılış ekranı lacivertinin derini, vurgu = oyunun altını.
+   Bağımlılık yok, GitHub Pages doğrudan yayınlar. */
+:root {
+  --field:    #2577c8;   /* panel mavisi, beyaz yazı AA geçsin diye bir ton derin (4.6:1) */
+  --field-hi: #3b90e2;
+  --field-lo: #1d63a9;
+  --ink:      #0e1726;   /* açılış lacivertinin derini: alt bölüm ve gizlilik sayfası zemini */
+  --ink-line: rgba(255, 255, 255, .09);
+  --text:     #e9eefb;
+  --muted:    #9fb0cf;
+  --gold:     #ffc23d;
+  --sky:      #96c3ff;   /* metin içi bağlantı: panel mavisinin açığı */
+  --badge:    #0b1220;
+  --gutter:   clamp(16px, 4vw, 40px);
+  --wrap:     1080px;
+  --display:  "Baloo 2", "Nunito", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 8px; }
+/* Sayfa içi bağlantının HEDEFİ (başlık, bölüm) odaklanır ama tıklanacak bir şey değildir: çerçeve çizilmez.
+   site.js hedefe tabindex="-1" verip odağı taşıyor; ortak odak kuralı başlığın etrafına altın kutu çiziyordu. */
+[tabindex="-1"]:focus { outline: none; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 12px; z-index: 30; background: #fff; color: #0d1726; padding: 8px 14px; border-radius: 999px; }
+
+/* ── ALT BÖLÜM (iki sayfada aynı) ────────────────────────────────────── */
+footer { background: var(--ink); padding: clamp(48px, 8vh, 88px) var(--gutter) 28px; }
+.cols {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: clamp(28px, 5vw, 72px);
+}
+.about img { display: block; width: 136px; height: auto; margin-bottom: 18px; }
+.about p { margin: 0; max-width: 30ch; color: var(--muted); }
+
+footer h2 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #fff;
+}
+footer nav a { display: block; padding: 8px 0; color: var(--text); text-decoration: none; overflow-wrap: anywhere; }
+footer nav a:hover { color: var(--gold); }
+
+.legal {
+  max-width: var(--wrap);
+  margin: clamp(36px, 6vh, 64px) auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--ink-line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 720px) {
+  .cols { grid-template-columns: 1fr; gap: 32px; }
+}

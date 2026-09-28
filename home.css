@@ -1,37 +1,5 @@
-/* Yabu Games — ANA SAYFA stili (yalnız index.html).
-   Yapı: tek renk dolu SAHNE (marka + oyun + mağazalar) ve koyu ALT BÖLÜM (stüdyo, iletişim, keşfet).
-   Renkler oyundan: sahne = Kupi Cube panel mavisi, alt bölüm = açılış ekranının laciverti, vurgu = oyunun altını.
-   Gizlilik sayfası styles.css kullanır; bu dosya ona karışmaz. Bağımlılık yok, GitHub Pages doğrudan yayınlar. */
-:root {
-  --field:    #2577c8;   /* panel mavisi, beyaz yazı AA geçsin diye bir ton derin (4.6:1) */
-  --field-hi: #3b90e2;
-  --field-lo: #1d63a9;
-  --ink:      #0e1726;   /* açılış lacivertinin derini */
-  --ink-line: rgba(255, 255, 255, .09);
-  --text:     #e9eefb;
-  --muted:    #9fb0cf;
-  --gold:     #ffc23d;
-  --badge:    #0b1220;
-  --gutter:   clamp(16px, 4vw, 40px);
-  --wrap:     1080px;
-  --display:  "Baloo 2", "Nunito", system-ui, sans-serif;
-}
-
-* { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-body {
-  margin: 0;
-  background: var(--ink);
-  color: var(--text);
-  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 17px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: inherit; }
-:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 8px; }
-.skip { position: absolute; left: -9999px; }
-.skip:focus { left: 16px; top: 12px; z-index: 5; background: #fff; color: #0d1726; padding: 8px 14px; border-radius: 999px; }
+/* Yabu Games — ANA SAYFA stili (yalnız index.html): tek renk dolu SAHNE (marka + oyun + mağazalar).
+   Renkler, yazı ve alt bölüm theme.css'ten gelir. Bağımlılık yok, GitHub Pages doğrudan yayınlar. */
 
 /* ── SAHNE ───────────────────────────────────────────────────────────── */
 .stage {
@@ -108,40 +76,7 @@ a { color: inherit; }
 a.store { transition: transform .16s ease, box-shadow .16s ease; }
 a.store:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(255, 255, 255, .34), 0 16px 30px rgba(8, 20, 40, .36); }
 
-/* ── ALT BÖLÜM ───────────────────────────────────────────────────────── */
-footer { background: var(--ink); padding: clamp(48px, 8vh, 88px) var(--gutter) 28px; }
-.cols {
-  max-width: var(--wrap);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: clamp(28px, 5vw, 72px);
-}
-.about img { display: block; width: 136px; height: auto; margin-bottom: 18px; }
-.about p { margin: 0; max-width: 30ch; color: var(--muted); }
-
-footer h2 {
-  margin: 0 0 12px;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: #fff;
-}
-footer nav a { display: block; padding: 8px 0; color: var(--text); text-decoration: none; overflow-wrap: anywhere; }
-footer nav a:hover { color: var(--gold); }
-
-.legal {
-  max-width: var(--wrap);
-  margin: clamp(36px, 6vh, 64px) auto 0;
-  padding-top: 20px;
-  border-top: 1px solid var(--ink-line);
-  color: var(--muted);
-  font-size: 14px;
-}
-
 @media (max-width: 720px) {
-  .cols { grid-template-columns: 1fr; gap: 32px; }
   .stores { width: 100%; }
   .stores li { flex: 1 1 204px; max-width: 320px; }
   .store { min-width: 0; }

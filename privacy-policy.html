@@ -11,6 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0e1726">
+<link rel="stylesheet" href="theme.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -185,12 +187,27 @@
 </main>
 
 <footer>
-  <div class="wrap row">
-    <span>&copy; 2026 Yabu Games</span>
-    <span class="spacer"></span>
-    <a href="./">Home</a>
-    <a href="./#contact">Contact</a>
+  <div class="cols">
+    <div class="about">
+      <img src="assets/yabu-wordmark.png" alt="Yabu Games" width="1075" height="483">
+      <p>Yabu Games is a small mobile game studio from T&uuml;rkiye. We make Kupi Cube.</p>
+    </div>
+
+    <nav aria-labelledby="f-contact">
+      <h2 id="f-contact">Contact</h2>
+      <a href="mailto:yabugames1@gmail.com?subject=Kupi%20Cube%20support">Support</a>
+      <a href="mailto:yabugames1@gmail.com">yabugames1@gmail.com</a>
+    </nav>
+
+    <nav aria-labelledby="f-explore">
+      <h2 id="f-explore">Explore</h2>
+      <a href="./">Games</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="#delete">Delete your data</a>
+    </nav>
   </div>
+
+  <p class="legal">&copy; 2026 Yabu Games</p>
 </footer>
 
 <script src="site.js" defer></script>
