@@ -99,7 +99,7 @@ h2.section { font-family: "Baloo 2", "Nunito", sans-serif; font-weight: 800; fon
 .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); box-shadow: none; }
 
 /* ── Gizlilik sayfası ────────────────────────────────────────────────── */
-.doc { max-width: 760px; margin: 0 auto; padding: 28px 0 10px; }
+.doc { max-width: 760px; margin: 0 auto; padding-top: 28px; padding-bottom: 10px; }   /* yan bosluk .wrap'ten gelir */
 .doc h1 { font-family: "Baloo 2", "Nunito", sans-serif; font-weight: 800; font-size: 34px; margin: 0 0 6px; color: #fff; }
 .doc .meta { color: var(--muted); font-size: 15px; margin: 0 0 26px; }
 .doc h2 { font-family: "Baloo 2", "Nunito", sans-serif; font-weight: 800; font-size: 21px; color: #fff;
@@ -111,7 +111,7 @@ h2.section { font-family: "Baloo 2", "Nunito", sans-serif; font-weight: 800; fon
 table { border-collapse: collapse; width: 100%; font-size: 15px; margin: 10px 0; }
 th, td { border: 1px solid var(--line); padding: 9px 11px; text-align: left; vertical-align: top; }
 th { background: rgba(255, 255, 255, .07); color: #fff; font-weight: 800; }
-.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; padding: 0; list-style: none; }
+.doc .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; padding: 0; list-style: none; }
 .toc a { display: inline-block; padding: 6px 13px; border: 1px solid var(--line); border-radius: 999px;
          text-decoration: none; font-size: 14px; font-weight: 700; }
 
