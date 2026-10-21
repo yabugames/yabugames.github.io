@@ -39,7 +39,7 @@
   <div class="wrap doc">
 
     <h1>Privacy Policy</h1>
-    <p class="meta">Yabu Games &middot; Effective date: 2026-07-17 &middot; Last updated: 2026-09-22</p>
+    <p class="meta">Yabu Games &middot; Effective date: 2026-07-17 &middot; Last updated: 2026-10-21</p>
 
     <p>This policy covers the mobile games published by <strong>Yabu Games</strong> ("we"). It explains what
        information our games collect, who processes it and what choices you have. Section&nbsp;2 lists which
@@ -64,7 +64,7 @@
        <strong>locally on your device</strong>. We do not run our own game servers and keep no database of players.</p>
     <ul>
       <li><strong>Kupi Cube</strong> — free casual puzzle game, supported by optional ads and optional in-app
-          purchases. Android (Google Play); iOS (App Store) when released.</li>
+          purchases. Android (Google Play) and iOS (App Store).</li>
     </ul>
 
     <h2 id="services">2. Services per app</h2>
@@ -75,7 +75,7 @@
         <tr>
           <td>Kupi Cube</td>
           <td>Google AdMob</td>
-          <td>GameAnalytics</td>
+          <td>GameAnalytics, Google Analytics for Firebase</td>
           <td>Google Play Billing (Android), Apple In-App Purchase (iOS)</td>
           <td>Google Play services / Apple App Store</td>
         </tr>
@@ -84,6 +84,7 @@
     <ul>
       <li><strong>Google AdMob</strong> — <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
       <li><strong>GameAnalytics</strong> — <a href="https://gameanalytics.com/privacy">gameanalytics.com/privacy</a></li>
+      <li><strong>Google Analytics for Firebase</strong> — <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></li>
       <li><strong>Google Play Billing</strong> — <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
       <li><strong>Apple In-App Purchase</strong> — <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></li>
     </ul>
@@ -100,6 +101,10 @@
         <tr><td>Gameplay events (level start and finish, purchases made, session length), device model,
                 OS version, country</td>
             <td>Understanding difficulty, fixing bugs, improving the game</td><td>GameAnalytics</td></tr>
+        <tr><td>App instance ID, advertising ID (IDFA on iOS only where you allow it), first app open, app version,
+                device model, OS version, approximate location (country/region)</td>
+            <td>Measuring which ad campaigns bring players to the game (attribution) and improving those campaigns</td>
+            <td>Google Analytics for Firebase</td></tr>
         <tr><td>Purchase tokens and order information (never card numbers)</td>
             <td>Delivering what you buy and restoring purchases</td><td>Google Play Billing / Apple</td></tr>
         <tr><td>Crash and diagnostic data</td>
@@ -134,6 +139,7 @@
     <ul>
       <li>Local game data stays on your device and is removed when you uninstall the game or clear its storage.</li>
       <li>Analytics data is kept by GameAnalytics in aggregated form.</li>
+      <li>Google Analytics for Firebase keeps user-level event data for up to 14&nbsp;months, then only aggregated reports.</li>
     </ul>
 
     <h3 id="delete">How to request deletion of your data</h3>
@@ -141,12 +147,14 @@
        no servers of our own, so there is nothing to sign in to &mdash; deletion is handled in two steps:</p>
     <ol>
       <li><strong>Delete local game data yourself:</strong> uninstall the game, or open
-          <em>Android Settings &rarr; Apps &rarr; Kupi Cube &rarr; Storage &rarr; Clear data</em>. This erases your
+          <em>Android Settings &rarr; Apps &rarr; Kupi Cube &rarr; Storage &rarr; Clear data</em> (on iOS, delete the
+          app). This erases your
           progress, coins, purchases record and settings from the device immediately and permanently.</li>
       <li><strong>Ask us to forward a request to our providers:</strong> email
           <a href="mailto:yabugames1@gmail.com">yabugames1@gmail.com</a> with the subject
           <em>&ldquo;Data deletion &mdash; Kupi Cube&rdquo;</em> and include your advertising ID
-          (<em>Android Settings &rarr; Privacy &rarr; Ads</em>). We forward it to Google AdMob and GameAnalytics
+          (<em>Android Settings &rarr; Privacy &rarr; Ads</em>). We forward it to Google AdMob, Google Analytics for
+          Firebase and GameAnalytics
           within <strong>7 days</strong> and confirm by email.</li>
     </ol>
     <div class="tablewrap">
@@ -160,6 +168,9 @@
         <tr><td>Gameplay events, device model, crash logs (GameAnalytics)</td>
             <td>Deletion requested from GameAnalytics on your behalf</td>
             <td>Kept in aggregated form; individual event data is retained for up to 12&nbsp;months</td></tr>
+        <tr><td>Attribution events and app instance ID (Google Analytics for Firebase)</td>
+            <td>Deletion requested from Google on your behalf</td>
+            <td>User-level data kept for up to 14&nbsp;months, then only in aggregated reports</td></tr>
         <tr><td>Purchase records (Google Play)</td>
             <td>Not deletable &mdash; Google keeps them as required by tax and consumer law</td>
             <td>Held by Google, not by us</td></tr>
